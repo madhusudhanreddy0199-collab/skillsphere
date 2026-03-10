@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --bg: #08090D;
+  --surface: #111318;
+  --surface2: #181C24;
+  --surface3: #1E2330;
+  --border: #1E2330;
+  --accent: #6EE7B7;
+  --accent2: #38BDF8;
+  --accent3: #F472B6;
+  --accent4: #FBBF24;
+  --white: #E8EAF0;
+  --text: #B0B8D0;
+  --text2: #7B82A0;
+  --muted: #7B82A0;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--white);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 { font-family: 'Syne', sans-serif; font-weight: 700; }
+
+.grad {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Cards */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 8px; padding: 8px 18px; border-radius: 8px;
+  font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.9rem;
+  cursor: pointer; border: 1px solid transparent; transition: all 0.15s;
+  text-decoration: none; white-space: nowrap;
+}
+.btn-primary { background: var(--accent); color: #08090d; border-color: var(--accent); }
+.btn-primary:hover { background: #5dd4a8; transform: translateY(-1px); }
+.btn-outline { background: transparent; color: var(--white); border-color: var(--border); }
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+.btn-ghost { background: transparent; color: var(--text2); border-color: transparent; }
+.btn-ghost:hover { background: var(--surface2); color: var(--white); }
+.btn-lg { padding: 14px 28px; font-size: 1rem; border-radius: 10px; }
+.btn-sm { padding: 6px 12px; font-size: 0.8rem; }
+
+/* Input */
+.input {
+  width: 100%; padding: 12px 16px;
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 8px; color: var(--white); font-size: 0.9rem;
+  font-family: 'DM Sans', sans-serif; outline: none; transition: border-color 0.15s;
+}
+.input:focus { border-color: var(--accent); }
+.input::placeholder { color: var(--muted); }
+
+/* Badge */
+.badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 4px 10px; border-radius: 100px; font-size: 0.75rem; font-weight: 600;
+  background: var(--surface2); border: 1px solid var(--border); color: var(--text2);
+}
+.badge-green { background: rgba(110,231,183,0.1); border-color: rgba(110,231,183,0.3); color: var(--accent); }
+
+/* Nav */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 40px;
+  background: rgba(8,9,13,0.85); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { font-family: 'Syne', sans-serif; font-size: 1.25rem; font-weight: 800; }
+
+/* Orbs */
+.orb { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+.orb1 { width: 400px; height: 400px; background: rgba(110,231,183,0.06); top: -100px; right: -100px; }
+.orb2 { width: 350px; height: 350px; background: rgba(56,189,248,0.05); bottom: 0; left: -100px; }
+.orb3 { width: 300px; height: 300px; background: rgba(244,114,182,0.04); top: 40%; right: 20%; }
+
+/* Animations */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+@keyframes glow { 0%,100% { box-shadow: 0 0 16px rgba(110,231,183,0.4); } 50% { box-shadow: 0 0 28px rgba(110,231,183,0.7); } }
+
+.animate-fadeUp { animation: fadeUp 0.5s ease both; }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+
+@media (max-width: 640px) {
+  .hide-mobile { display: none; }
+  .nav { padding: 14px 20px; }
+}
